@@ -14,10 +14,10 @@ public class Explore : Game
         {
             if (roll >= 3)
             {
-                Console.WriteLine("You see an alien in the distance and move to engage.");
+                Console.WriteLine("You see an alien in the distance and move to engage.\b");
                 Combat();
             }
-            Console.WriteLine("You didn't find anything");
+            Console.WriteLine("You didn't find anything.\b");
         } else if (roll >= 10)
         {
             if (roll >= 18)
@@ -29,7 +29,7 @@ public class Explore : Game
                 int damage = weapons[weapon];
                 Console.WriteLine($"You found a {weapon}.");
                 Console.WriteLine($"It can do {damage} damage.");
-                Console.Write("Would you like to equip it? ");
+                Console.Write("Would you like to equip it? \b");
                 string answer = Console.ReadLine();
                 if (answer.ToLower() == "yes")
                 {
@@ -37,13 +37,13 @@ public class Explore : Game
                 } else
                 {
                     AddArmory(weapon, damage);
-                    Console.WriteLine($"{weapon} added to the community storage.");
+                    Console.WriteLine($"{weapon} added to the community storage.\b");
                 }
             } else {
                 List<string> allGear = GetGear();
                 string gear = allGear[random.Next(allGear.Count())];
                 Console.WriteLine($"You found a {gear}.");
-                Console.Write("Would you like to equip it? ");
+                Console.Write("Would you like to equip it? \b");
                 string decision = Console.ReadLine();
                 if (decision.ToLower() == "yes")
                     {
@@ -51,7 +51,7 @@ public class Explore : Game
                     } else
                     {
                         AddStorage(gear);
-                        Console.WriteLine($"{gear} added to the community storage.");
+                        Console.WriteLine($"{gear} added to the community storage.\b");
                     }
             }
         }
