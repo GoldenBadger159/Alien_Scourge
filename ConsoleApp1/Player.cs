@@ -6,7 +6,7 @@ public class Player : World
     private int _baseDamage = 5;
     private int _level = 1;
     private int _exp = 0;
-    private string _weaponName;
+    private string? _weaponName;
     private int _weaponDamage;
     public int GetEXP()
     {
@@ -38,10 +38,10 @@ public class Player : World
         if (_equipment.Count() <= 3)
         {
             _equipment.Add(item);
-            Console.WriteLine($"{item} equipped.\b");
+            Console.WriteLine($"{item} equipped.\r\n");
         }
         else{
-            Console.WriteLine("Only three pieces of gear can be equipped at a time.\b");
+            Console.WriteLine("Only three pieces of gear can be equipped at a time.\r\n");
         }
     }
     public void EquipWeapon(string item)
@@ -50,9 +50,9 @@ public class Player : World
         try{
             _weaponDamage = weapons[item];
             _weaponName = item;
-            Console.WriteLine($"{item} equipped.\b");
+            Console.WriteLine($"{_weaponName} equipped.\r\n");
         } catch {
-            Console.WriteLine("that is not a valid weapon.\b");
+            Console.WriteLine("that is not a valid weapon.\r\n");
         }
     }
     public int GetBonus()

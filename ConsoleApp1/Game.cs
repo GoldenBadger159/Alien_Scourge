@@ -22,8 +22,8 @@ public class Game : World
             levelOptions.Add(level);
             Console.WriteLine($"{i + 1}: {level}");
         }
-        Console.Write("Which area would you like to go to?");
-        string choice = Console.ReadLine();
+        Console.Write("Which area would you like to go to?\r\n");
+        string choice = Console.ReadLine() + "";
         string destination = levelOptions[int.Parse(choice) - 1];
         return destination;
     }
@@ -35,41 +35,41 @@ public class Game : World
         {
             case "Forest":
                 Console.WriteLine("The Forest is dense and damp all around you. Your coat keeps you warm in the mid morning chill");
-                Console.WriteLine("Ahead you see a pile of junk, Likely what's left of someone's camp. You search it for anything useful.\b");
+                Console.WriteLine("Ahead you see a pile of junk, Likely what's left of someone's camp. You search it for anything useful.\r\n");
                 break;
             case "Abandoned Cottage":
                 Console.WriteLine("Deep in the woods you happen upon what's left of a summer get away cottage.");
-                Console.WriteLine("Hoping to find something uesful you move to search the building.\b");
+                Console.WriteLine("Hoping to find something uesful you move to search the building.\r\n");
                 break;
             case "Appartment Complex":
                 Console.WriteLine("Deep in the ruins of the city a mostly intact appartment complex stands silently and resolute.");
-                Console.WriteLine("Thinking perhaps you'll get lucky and find something looters haven't already taken for themselves.\b");
+                Console.WriteLine("Thinking perhaps you'll get lucky and find something looters haven't already taken for themselves.\r\n");
                 break;
             case "Old Super Store":
                 Console.WriteLine("In the suburbs surrounding a nearby city you find the suprisingly well preserved remains of an old superstore.");
-                Console.WriteLine("With any luck you'll find something useful inside.\b");
+                Console.WriteLine("With any luck you'll find something useful inside.\r\n");
                 break;
             case "Office Building":
                 Console.WriteLine("The industrial district of a small town still holds a few intact office structures.");
-                Console.WriteLine("You pick one and go to explore.\b");
+                Console.WriteLine("You pick one and go to explore.\r\n");
                 break;
             case "Abandoned School":
-                Console.WriteLine("Plenty of schools existed before the apocalypse, perhaps this one still holds something for you.\b");
+                Console.WriteLine("Plenty of schools existed before the apocalypse, perhaps this one still holds something for you.\r\n");
                 break;
             case "Police Station":
                 Console.WriteLine("In the center of the city lies a crumbling building you can barely recognize as an old police station.");
-                Console.WriteLine("Perhaps it's destroyed state preserved some useful equipment from the destructive hands of looters.\b");
+                Console.WriteLine("Perhaps it's destroyed state preserved some useful equipment from the destructive hands of looters.\r\n");
                 break;
             case "Sports Stadium":
                 Console.WriteLine("Like a monolith of the past this sports stadium managed not to be destroyed during the initial invasion");
-                Console.WriteLine("Early after the collapse of society it would've been used as a shelter for many people. perhaps they left something behind.\b");
+                Console.WriteLine("Early after the collapse of society it would've been used as a shelter for many people. perhaps they left something behind.\r\n");
                 break;
         }
     }
     public void Combat()
     {
         var random = new Random();
-        Console.WriteLine("After nearing it's hiding place an Alien footsoldier jumps out to attack you!\b");
+        Console.WriteLine("After nearing it's hiding place an Alien footsoldier jumps out to attack you!\r\n");
         List<int> damages = GetEnemies();
         int enemyHP = 50;
         int playerHP = p.GetPlayerHP();
@@ -85,16 +85,16 @@ public class Game : World
             Console.WriteLine($"You hit the enemy for {hit} damage.");
             if (enemyHP <= 0){
                 defeated = true;
-                Console.WriteLine("You have killed the alien.\b");
+                Console.WriteLine("You have killed the alien.\r\n");
             }
             if (!defeated){
                 playerHP -= enemyDamage;
-                Console.WriteLine("Press enter to continue\b");
+                Console.WriteLine("Press enter to continue\r\n");
                 Console.ReadLine();
                 Console.WriteLine($"You have been hit for {enemyDamage}");
                 if (playerHP <= 0){
                     dead = true;
-                    Console.WriteLine("You have died.\b");
+                    Console.WriteLine("You have died.\r\n");
                     break;
                 };
             }

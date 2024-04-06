@@ -14,10 +14,10 @@ public class Explore : Game
         {
             if (roll >= 3)
             {
-                Console.WriteLine("You see an alien in the distance and move to engage.\b");
+                Console.WriteLine("You see an alien in the distance and move to engage.\r\n");
                 Combat();
             }
-            Console.WriteLine("You didn't find anything.\b");
+            Console.WriteLine("You didn't find anything.\r\n");
         } else if (roll >= 10)
         {
             if (roll >= 18)
@@ -29,29 +29,29 @@ public class Explore : Game
                 int damage = weapons[weapon];
                 Console.WriteLine($"You found a {weapon}.");
                 Console.WriteLine($"It can do {damage} damage.");
-                Console.Write("Would you like to equip it? \b");
-                string answer = Console.ReadLine();
+                Console.Write("Would you like to equip it? \r\n");
+                string answer = Console.ReadLine() + "";
                 if (answer.ToLower() == "yes")
                 {
                     p.EquipWeapon(weapon);
                 } else
                 {
                     AddArmory(weapon, damage);
-                    Console.WriteLine($"{weapon} added to the community storage.\b");
+                    Console.WriteLine($"{weapon} added to the community storage.\r\n");
                 }
             } else {
                 List<string> allGear = GetGear();
                 string gear = allGear[random.Next(allGear.Count())];
                 Console.WriteLine($"You found a {gear}.");
-                Console.Write("Would you like to equip it? \b");
-                string decision = Console.ReadLine();
+                Console.Write("Would you like to equip it? \r\n");
+                string decision = Console.ReadLine() + "";
                 if (decision.ToLower() == "yes")
                     {
                         p.EquipGear(gear);
                     } else
                     {
                         AddStorage(gear);
-                        Console.WriteLine($"{gear} added to the community storage.\b");
+                        Console.WriteLine($"{gear} added to the community storage.\r\n");
                     }
             }
         }
